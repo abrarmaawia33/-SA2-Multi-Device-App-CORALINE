@@ -1,0 +1,628 @@
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #06081b;
+    color: #eef8ce;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-image:
+    url(img/bg.png),
+    repeating-linear-gradient(
+        to right, transparent 0 400px, #fdfdfd33 400px 401px
+    );
+    background-size: 100%;
+}
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+.section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add the animation class */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px); /* Start from below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0); /* Move up to the original position */
+}
+
+
+
+
+.content-fit {
+    width: min(1200px, 90vw);
+    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    padding-block: 10em;
+}
+
+#bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+header {
+    font-size: 15px;
+    padding-block: 1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background-color: #1B1B1B11;
+    background-image: repeating-linear-gradient(
+        to right, transparent 0 400px, #fdfdfd33 400px 401px
+    );
+}
+header .content-fit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5em; 
+    min-height: unset !important;
+}
+
+header .content-fit nav ul {
+    display: flex;
+    gap: 2em; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+header .content-fit nav ul li {
+    font-size: 16px; 
+}
+
+header .content-fit nav ul li a {
+    text-decoration: none; 
+    color: #f1f0c6; 
+    font-weight: 500; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+    position: relative; 
+}
+
+header .content-fit nav ul li a:hover {
+    color: #9bb8e4; 
+    transform: scale(1.1); 
+}
+header .content-fit nav ul li a[data-page="home"] {
+    color: #9bb8e4; 
+    font-weight: 600; 
+}
+
+
+
+#banner .title {
+    font-size: 7em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+#banner .title::before {
+    content: attr(data-before);
+    position: absolute;
+    font-family: "devil breeze";
+    top: 0.5em;
+    inset: 1.50em 0 0 0;
+    z-index: -1;
+    color: #445022;
+}
+.section .decorate {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+}
+#intro .content-fit {
+    display: flex;
+    gap: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+.section .number {
+    font-family: "devil breeze";
+    font-size: 15em;
+    font-weight: bold;
+}
+
+#description .btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    background: linear-gradient(145deg,#12122f);
+    box-shadow:  
+    rgb(103 105 75) 14px 8px 40px,
+    rgb(103 105 75) -12px -14px 40px;
+    text-decoration: none;   
+    color: rgb(255, 255, 255);
+    padding: 13px 50px;
+    font-size: 20px;
+    font-family: "Montserrat";
+    z-index: 9999;
+    position: absolute;
+    left: 80px;
+    top: 500px;
+    align-items: flex-start;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 2px solid #a6c5f4;
+    border-right: 2px solid #a6c5f4;
+    animation: border-top-right 3s infinite alternate;
+}
+.btn::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 2px solid #a6c5f4;
+    border-left: 2px solid #a6c5f4;
+    animation: border-bottom-left 3s infinite alternate;
+}
+@keyframes border-top-right {
+    0%   {width: 0px;   height: 0px;}
+    25%  {width: 150px; height: 0px;}
+    50%  {width: 150px; height: 48px;}
+    100% {width: 150px; height: 48px;}
+    
+}
+@keyframes border-bottom-left{
+    0%    {width: 0px;   height: 0px; opacity: 0;}
+    50%   {width: 0px;   height: 0px; opacity: 0;}
+    50.1% {width: 0px;   height: 0px; opacity: 1;}
+    75%   {width: 150px; height: 0px; opacity: 1;}
+    100%  {width: 150px; height: 48px; opacity: 1;}
+    
+}
+
+
+.section .content-fit .title {
+    font-family: "Vampire Zone";
+    font-size: 3em;
+    font-weight: bold;
+}
+#description .content-fit {
+    padding-right: 30%;
+}
+#description .number {
+    font-size: 5em;
+}
+#description .title {
+    font-size: 5em;
+    font-weight: 500;
+}
+
+
+#description2 .des2 p {
+    padding-right: 50%;
+    right: 30px;
+}
+#description2 .number{
+    font-size: 15em;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+.section .decorate img{
+    display: flex;
+    gap: 30%;
+}
+
+
+
+/* Youtube video style */
+.section .coraline-video {
+    width: 600px;
+    height: 381px;
+    box-shadow:  
+    rgb(103 105 75) 14px 8px 40px,
+    rgb(103 105 75) -12px -14px 40px
+}
+
+
+
+/* Footer */
+.footer {
+    background: linear-gradient(45deg,  #000000, #06081b, #1c1f40, #263041, #253147, #30384a);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+    color: #eef8ce;
+    font-family: "Vampire Zone";
+    padding: 20px 0;
+    position: relative;
+    z-index: 9999;
+    text-decoration: none;
+}
+
+/* Animation for the gradient */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glow animation for the footer */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00;
+    }
+    100% {
+        box-shadow: 0 0 10px #eef8ce, 0 0 20px #eef8ce, 0 0 30px #eef8ce, 0 0 40px #ffcc00;
+    }
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Footer Section */
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 250px;
+}
+
+.footer-section h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation for heading underline */
+.footer-section h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffcc00;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.footer-section h2:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Footer Section Image */
+.footer-section-img {
+    margin-top: 30px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    width: 500px;
+}
+
+/* Hover effect for links */
+.footer-section ul li a {
+    color: #eef8ce;
+    text-decoration: none;
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-section ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover::after {
+    width: 100%;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Adding glowing effect */
+}
+
+/* Footer Section Text */
+.footer-section p, 
+.footer-section ul {
+    font-size: 1em;
+    line-height: 2;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+/* links */
+.contact a{
+    text-decoration: none;
+    color: #eef8ce;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #eef8ce;
+    padding-top: 10px;
+    font-size: 0.9em;
+}
+
+#container3D {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+
+/* Desktop Devices */
+@media screen and (max-width: 1024px) {
+    #container3D {
+       display: none;
+    }
+    /* Remove spacing between sections */
+    .section {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+    }
+
+    /* Banner title adjustment */
+    #banner .title {
+        min-height: 40vh;
+        font-size: 5em;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Intro section layout */
+    #intro .content-fit {
+        margin-top: -100px;
+        flex-direction: row;
+        display: flex;
+    }
+
+    #image .decorate{
+        max-width: 40%;
+    }
+
+    /* Adjust number sizes */
+    .section .number {
+        font-size: 7em;
+        align-items: center;
+        display: flex;
+    }
+
+    /* Adjust title size */
+    .section .content-fit .title {
+        font-size: 3em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .footer-section-img {
+        width: 400px;
+    }
+
+    .footer-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-section p,
+    .footer-section ul li {
+        font-size: 0.9em;
+    }
+
+    .footer-bottom {
+        font-size: 0.8em;
+    }
+
+}
+
+/* Tablet Devices */
+@media screen and (max-width: 720px){
+    #container3D {
+        display: none;
+     }
+        /* Banner title adjustment */
+        #banner .title {
+            font-size: 3em;
+            margin-top: 20px;
+        }
+    
+        .section .decorate {
+            margin: 60px;
+            max-width: 40%;
+            display: flex;
+        }
+        #image .decorate {
+            max-width: 68%;
+        }
+
+        /* Stack content vertically */
+        #intro .content-fit {
+            margin-top: 20px;
+            flex-direction: column;
+        }
+    
+        /* Adjust number sizes */
+        .section .number {
+            font-size: 5em;
+            margin-left: 60px;
+        }
+    
+        /* Adjust title size */
+        .section .content-fit .title {
+            font-size: 3em;
+        }
+    
+        /* Remove content padding for smaller screens */
+        #description .content-fit {
+            padding-right: 0;
+        }
+        
+}
+
+/* large Mobile Devices */
+@media screen and (max-width: 540px) {
+
+    .section {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+    }
+
+    .section .decorate{
+        margin: 50px;
+        max-width: 40%;
+
+    }
+        /* Banner title adjustment */
+        #banner .title {
+            font-size: 3em;
+            margin-top: 40px;
+        }
+    
+        /* Stack content vertically */
+        #intro .content-fit {
+            flex-direction: column;
+            width: 90%;
+            margin-top: 50px;
+        }
+        #description .content-fit  {
+            flex-direction: column;
+            width: 90%;
+            
+        }
+        #description2 .content-fit p{
+            width: 100%;
+        }
+        
+        /* Adjust number sizes */
+        .section .number {
+            font-size: 3em;
+        }
+    
+        /* Adjust title size */
+        .section .content-fit .title {
+            font-size: 1.5em;
+        }
+
+        #image .decorate {
+            max-width: 60%;
+        }
+    
+        /* Adjust content fit */
+        .content-fit {
+            padding: 3em 1em; /* Less padding */
+        }
+    
+        /* Button size */
+        .btn {
+            width: 120px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .coraline-video {
+            max-width: 60%; /* Ensure it fits within the screen */
+        }
+    
+        .coraline-video iframe {
+            width: 100%;
+            height: 100%;
+        }
+}
