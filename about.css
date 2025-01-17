@@ -1,0 +1,735 @@
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #06081b;
+    color: #eef8ce;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-image:
+    url(img/bg.png),
+    repeating-linear-gradient(
+        to right, transparent 0 400px, #fdfdfd33 400px 401px
+    );
+    background-size: 100%;
+}
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+.section1 {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add the animation class */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px); /* Start from below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0); /* Move up to the original position */
+}
+
+
+.content-fit {
+    width: min(1200px, 90vw);
+    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    padding-block: 10em;
+}
+
+/* animated blings background  */
+#bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+
+
+/* header - logo - and the navigation bar style */
+header {
+    font-size: 15px;
+    padding-block: 1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background-color: #1B1B1B11;
+    background-image: repeating-linear-gradient(
+        to right, transparent 0 400px, #fdfdfd33 400px 401px
+    );
+}
+header .content-fit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5em; 
+    min-height: unset !important;
+}
+header .content-fit nav ul {
+    display: flex;
+    gap: 2em; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+}
+header .content-fit nav ul li {
+    font-size: 16px; 
+}
+header .content-fit nav ul li a {
+    text-decoration: none; 
+    color: #f1f0c6; 
+    font-weight: 500; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+    position: relative; 
+}
+header .content-fit nav ul li a:hover {
+    color: #9bb8e4; 
+    transform: scale(1.1); 
+}
+header .content-fit nav ul li a[data-page="About"] {
+    color: #9bb8e4; 
+    font-weight: 600; 
+}
+
+
+
+/* the main title #banner */
+#banner .title {
+    color: #f6ff48;
+    font-size: 7em;
+    font-weight: bold;
+    position: relative;
+    align-items: center;
+    text-align: center;
+}
+#banner .title::before {
+    content: attr(data-before);
+    position: absolute;
+    font-family: "devil breeze";
+    top: 0.5em;
+    inset: 1.50em 0 0 0;
+    z-index: -1;
+    color: #445022;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#banner .content-fit .img2 {
+    display: flex;
+    width: 400px;
+    position: absolute;
+    left: 80%;
+    top: -20%;
+    z-index: -2;
+    animation: moveUpDown 3s ease-in-out infinite;
+    transition: transform 0.6s ease, rotate 0.6s ease;
+}
+#banner .content-fit .img2:hover {
+    transform: rotateY(180deg);
+    animation-play-state: paused; /* Pause the up-and-down animation on hover */
+}
+
+
+
+
+/* From Uiverse.io by Dennyhml */ 
+.container{
+ position: absolute;
+ left: 10%;
+}
+.bubble {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 25px rgba (255, 255, 255, 0.25);
+    animation: animate_4010 8s ease-in-out infinite;
+  }
+  .bubble:nth-child(2) {
+    position: relative;
+    zoom: 0.45;
+    left: -10px;
+    top: -100px;
+    animation-delay: -4s;
+  }
+  .bubble:nth-child(3) {
+    position: relative;
+    zoom: 0.45;
+    right: -80px;
+    top: -300px;
+    animation-delay: -6s;
+  }
+  .bubble:nth-child(4) {
+    position: relative;
+    zoom: 0.35;
+    left: -120px;
+    bottom: -200px;
+    animation-delay: -3s;
+  }
+  .bubble:nth-child(5) {
+    position: relative;
+    zoom: 0.5;
+    left: 0px;
+    top: 200px;
+    animation-delay: -5s;
+  }
+  @keyframes animate_4010 {
+    0%,100% {
+      transform: translateY(-20px);
+    }
+  
+    50% {
+      transform: translateY(20px);
+    }
+  }
+  .bubble::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 45px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 10;
+    filter: blur(2px);
+  }
+  .bubble::after {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 10;
+    filter: blur(2px);
+  }
+  .bubble span {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .bubble span:nth-child(1) {
+    inset: 10px;
+    border-left: 15px solid #0fb4ff;
+    filter: blur(8px);
+  }
+  .bubble span:nth-child(2) {
+    inset: 10px;
+    border-right: 15px solid #ff4484;
+    filter: blur(8px);
+  }
+  .bubble span:nth-child(3) {
+    inset: 10px;
+    border-top: 15px solid #ffeb3b;
+    filter: blur(8px);
+  }
+  .bubble span:nth-child(4) {
+    inset: 30px;
+    border-left: 15px solid #ff4484;
+    filter: blur(12px);
+  }
+  .bubble span:nth-child(5) {
+    inset: 10px;
+    border-bottom: 10px solid #fff;
+    filter: blur(8px);
+    transform: rotate(330deg);
+  }
+
+
+
+/* #foundation */
+.section1 .content-fit {
+    flex: 1;
+    max-width: 60%; 
+}
+.section1 .content-fit .title {
+    font-family: "Vampire Zone";
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.section1 .content-fit h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+.section1 .content-fit p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+#foundation .content-fit {
+    padding-right: 5%; 
+}
+#foundation .title {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+/* Image Styling */
+.section1 img.decorate {
+    width: 400px;
+    height: auto;
+    flex-shrink: 0; 
+    margin-left: 4em; 
+    box-shadow:  
+    rgb(103 105 75) 14px 8px 40px,
+    rgb(103 105 75) -12px -14px 40px
+}
+
+
+
+/* #PUPPETS */
+#PUPPETS .content-fit {
+    padding-right: 5%; 
+    margin-left: 2%; 
+}
+#PUPPETS .title {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+/* Image Styling */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin-right: 9%; 
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow:  
+    rgb(103 105 75) 14px 8px 40px,
+    rgb(103 105 75) -12px -14px 40px;
+    pointer-events: none;
+  }
+  .flip-card:hover .flip-card-inner  {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+
+
+
+/* #SETS */
+#SETS .content-fit {
+    padding-right: 5%; 
+    margin-left: 2%; 
+}
+#SETS .title {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+
+
+
+/* container  */
+.slider-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: auto; 
+}
+.slider-images {
+    display: flex;
+    align-items: center;
+    gap: 15px; /
+}
+.slider-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.slider-img {
+    width: 100px; 
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s ease; 
+}
+.slider-images .slider-img:first-child,
+.slider-images .slider-img:last-child {
+    height: 300px; 
+}
+.slider-images .slider-img:nth-child(2),
+.slider-images .slider-img:nth-child(6) {
+    height: 350px; 
+}
+.slider-images .slider-img:nth-child(3),
+.slider-images .slider-img:nth-child(4),
+.slider-images .slider-img:nth-child(5) {
+    height: 400px; 
+}
+.slider-img.active {
+    width: 500px !important;
+    height: 450px !important;
+}
+
+
+
+/* Footer */
+.footer {
+    background: linear-gradient(45deg,  #000000, #06081b, #1c1f40, #263041, #253147, #30384a);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+    color: #eef8ce;
+    font-family: "Vampire Zone";
+    padding: 20px 0;
+    position: relative;
+    z-index: 9999;
+    text-decoration: none;
+}
+
+/* Animation for the gradient */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glow animation for the footer */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00;
+    }
+    100% {
+        box-shadow: 0 0 10px #eef8ce, 0 0 20px #eef8ce, 0 0 30px #eef8ce, 0 0 40px #ffcc00;
+    }
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Footer Section */
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 250px;
+}
+
+.footer-section h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation for heading underline */
+.footer-section h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffcc00;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.footer-section h2:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Footer Section Image */
+.footer-section-img {
+    margin-top: 30px;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    width: 500px;
+}
+
+/* Hover effect for links */
+.footer-section ul li a {
+    color: #eef8ce;
+    text-decoration: none;
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-section ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover::after {
+    width: 100%;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Adding glowing effect */
+}
+
+/* Footer Section Text */
+.footer-section p, 
+.footer-section ul {
+    font-size: 1em;
+    line-height: 2;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+/* links */
+.contact a{
+    text-decoration: none;
+    color: #eef8ce;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #eef8ce;
+    padding-top: 10px;
+    font-size: 0.9em;
+}
+
+#container3D {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+
+/* Desktop Devices */
+@media screen and (max-width: 1024px){
+    #banner .img2{
+        max-width: 60%;
+       
+    } 
+    .flip-card .flip-card-inner{
+        max-width: 40%;
+    }
+
+    .decorate img{
+        width: 20%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+   
+    #banner .title {
+        font-size: 5em;
+    }
+    #intro .content-fit {
+        flex-direction: column;
+    }
+
+    #intro .decorate{
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .footer-section-img {
+        width: 400px;
+    }
+
+    .footer-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-section p,
+    .footer-section ul li {
+        font-size: 0.9em;
+    }
+
+    .footer-bottom {
+        font-size: 0.8em;
+    }
+
+}
+
+/* Tablet Devices */
+@media screen and (max-width: 720px){
+   
+    #banner .title {
+        font-size: 3em;
+    }
+    .decorate{
+        margin-top: 550px;
+        max-width: 50%;
+        display: flex;
+    }
+    .flip-card .flip-card-inner{
+        margin-top: 300px;
+        max-width: 50%;
+    }
+     .content-fit .info li {
+        width: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-fit .info p {
+        width: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-fit .info h4 {
+        width: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .section .content-fit .title {
+        font-size: 2em;
+    }
+    .slider-container{
+        display: none;
+    }
+}
+
+/* large Mobile Devices */
+@media screen and (max-width: 540px){
+  
+    #banner .title {
+        max-width: 100%;
+        font-size: 2em;
+        margin: -70px;
+    }
+    .decorate {
+        max-width: 40%;
+        display: flex; 
+    }
+    .img{
+        max-width: 160%;
+    }
+    .flip-card .flip-card-inner{
+     display: none;
+    }
+     .content-fit .info li {
+        font-size: 0.8em;
+        width: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-fit .info p {
+        font-size: 0.8em;
+        width: 200%;
+        display: flex;
+    }
+    .content-fit .info h4 {
+        font-size: 1em;
+        width: 200%;
+        display: flex;
+        flex-direction: column;
+    }
+    .container .bubble{
+        display: none;
+    }
+
+    .section .content-fit .title {
+        font-size: 1.2em;
+    }
+
+    
+}
