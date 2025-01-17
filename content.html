@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="content.css">
+</head>
+<body>
+
+
+    <!-- background video  -->
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+          <source src="modern/Images/img3/video0.mov" type="video/mp4">
+        </video>
+      </div>
+      
+     <!-- logo and navigation bar -->
+     <header>
+        <div class="content-fit">
+            <div class="logo">coraline</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-page="home">Home</a></li>
+                    <li><a href="about.html" data-page="About">About</a></li>
+                    <li><a href="cast.html" data-page="Cast">Cast</a></li>
+                    <li><a href="content.html" data-page="Contant">Contant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+        <!-- Signup Page -->
+        <div id="signup" class="page hidden">
+            <div class="form-container">
+                <h2>Sign Up For More Information</h2>
+                <p>Sign up for the latest news about Coraline 15th Anniversary, and to receive future updates from Trafalgar Releasing.</p>
+                <input type="text" id="signup-name" placeholder="Enter your name" required>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <input type="password" id="signup-password" placeholder="Enter your password" required>
+                <button id="signup-btn">Submit</button>
+                <p id="signup-error" style="color: red; display: none;">Please fill in all fields.</p>
+            </div>
+        </div>
+
+   
+      
+    <script src="JavaScript/content.js"></script>
+
+    <script>
+       
+
+       // Signup Functionality
+document.getElementById('signup-btn').addEventListener('click', async () => {
+    const name = document.getElementById('signup-name').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    const password = document.getElementById('signup-password').value.trim();
+    const error = document.getElementById('signup-error');
+
+    if (name && email && password) {
+        try {
+            const response = await fetch('http://localhost:4000/api/user/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Sign Up Successful! Redirecting to Login page...');
+                error.style.display = 'none';
+                document.getElementById('signup').classList.add('hidden');
+                document.getElementById('login').classList.remove('hidden');
+            } else {
+                error.textContent = data.message || 'Sign Up Failed!';
+                error.style.display = 'block';
+            }
+        } catch (err) {
+            error.textContent = 'An error occurred. Please try again later.';
+            error.style.display = 'block';
+        }
+    } else {
+        error.textContent = 'All fields are required!';
+        error.style.display = 'block';
+    }
+});
+
+
+
+    </script>
+</body>
+</html>
